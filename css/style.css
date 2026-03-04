@@ -37,11 +37,10 @@ body {
     background-color: var(--canvas);
     color: var(--ink);
     line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-    transition: background-color 0.5s ease, color 0.5s ease;
     overflow-x: hidden;
     position: relative;
     min-height: 100vh;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 body::before, body::after {
@@ -75,25 +74,16 @@ header {
     padding: 10rem 2rem 5rem;
     max-width: 900px;
     margin: 0 auto;
-    animation: fadeInUp 1s ease-out forwards;
 }
 
 header h1 {
     font-family: 'Outfit', sans-serif;
     font-size: clamp(2.5rem, 8vw, 4.5rem);
-    line-height: 1.1;
     font-weight: 800;
-    letter-spacing: -0.04em;
     margin-bottom: 1.5rem;
     background: linear-gradient(135deg, var(--ink) 0%, var(--accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-header p {
-    font-size: 1.25rem;
-    max-width: 550px;
-    opacity: 0.8;
 }
 
 nav {
@@ -102,25 +92,18 @@ nav {
     left: 50%;
     transform: translateX(-50%);
     background: var(--glass-bg);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    backdrop-filter: blur(24px);
     padding: 0.5rem;
     border-radius: 100px;
     border: 1px solid var(--glass-border);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05), inset 0 1px 1px var(--glass-shine);
     z-index: 1000;
-    transition: all 0.4s ease;
-    width: max-content;
-    max-width: 90vw;
 }
 
 nav ul {
     display: flex;
-    gap: 0.2rem;
     list-style: none;
+    gap: 0.5rem;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
 }
 
 nav ul li a, nav ul li#theme-toggle {
@@ -130,39 +113,27 @@ nav ul li a, nav ul li#theme-toggle {
     font-weight: 600;
     padding: 0.6rem 1.4rem;
     border-radius: 100px;
-    transition: all 0.3s ease;
+    transition: 0.3s;
     cursor: pointer;
-    display: block;
 }
 
 nav ul li a:hover, nav ul li#theme-toggle:hover {
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: inset 0 1px 2px var(--glass-shine);
-    transform: translateY(-2px);
-}
-
-body.dark-mode nav ul li a:hover, body.dark-mode nav ul li#theme-toggle:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 main {
     max-width: 900px;
     margin: 0 auto;
     padding: 0 2rem 10rem;
-    animation: fadeInUp 1s ease-out 0.2s forwards;
-    opacity: 0;
 }
 
 section {
-    margin-bottom: 8rem;
+    margin-bottom: 5rem;
     background: var(--glass-bg);
     backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--glass-border);
     border-radius: 24px;
     padding: 3rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05), inset 0 1px 1px var(--glass-shine);
-    transition: all 0.4s ease;
 }
 
 h2 {
@@ -172,64 +143,37 @@ h2 {
     letter-spacing: 0.25em;
     color: var(--accent);
     margin-bottom: 2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
 }
 
-h2 span {
-    font-size: 0.7rem;
-    transition: transform 0.3s ease;
+ol li, #projects-list li {
+    background: rgba(255, 255, 255, 0.05);
+    margin-bottom: 1rem;
+    padding: 1.2rem;
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    list-style: none;
+    color: var(--ink);
 }
 
 img {
     width: 220px;
     height: 220px;
     object-fit: cover;
-    background: transparent;
-    border: 2px solid var(--glass-border);
     margin-bottom: 2.5rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 2px 10px var(--glass-shine);
     animation: liquidMorph 8s ease-in-out infinite;
-    transition: all 0.4s ease;
-}
-
-form {
-    display: grid;
-    gap: 1.5rem;
+    border: 2px solid var(--glass-border);
 }
 
 input, textarea {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
     color: var(--ink);
     border: 1px solid var(--glass-border);
     border-radius: 16px;
-    padding: 1.2rem 1.5rem;
-    font-family: inherit;
-    font-size: 1.1rem;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
-    transition: all 0.3s ease;
+    padding: 1.2rem;
     width: 100%;
 }
 
-body.dark-mode input, body.dark-mode textarea {
-    background: rgba(0, 0, 0, 0.2);
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-input:focus, textarea:focus {
-    outline: none;
-    background: rgba(255, 255, 255, 0.4);
-    border-color: var(--accent);
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1), inset 0 2px 4px var(--glass-shine);
-}
-
-body.dark-mode input:focus, body.dark-mode textarea:focus {
-    background: rgba(0, 0, 0, 0.4);
-}
-
 button {
-    justify-self: start;
     background: var(--glass-bg);
     color: var(--ink);
     padding: 1.2rem 2.8rem;
@@ -237,84 +181,20 @@ button {
     border-radius: 100px;
     font-weight: 700;
     cursor: pointer;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05), inset 0 1px 2px var(--glass-shine);
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
 
 button:hover {
-    transform: translateY(-3px);
     background: var(--accent);
     color: white;
-    border-color: var(--accent);
-    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.5);
-}
-
-#form-feedback {
-    font-weight: 600;
-    font-size: 0.95rem;
-    padding-top: 0.5rem;
-}
-
-footer {
-    text-align: center;
-    padding-bottom: 4rem;
-    opacity: 0.5;
-    font-size: 0.85rem;
-}
-
-.hidden {
-    display: none;
-}
-
-button[style*="fixed"] {
-    background: var(--glass-bg) !important;
-    color: var(--ink) !important;
-    backdrop-filter: blur(24px) !important;
-    border: 1px solid var(--glass-border) !important;
-    border-radius: 50% !important;
-    width: 55px !important;
-    height: 55px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 2px var(--glass-shine) !important;
-    transition: all 0.3s ease !important;
-}
-
-button[style*="fixed"]:hover {
-    transform: translateY(-5px) !important;
-    background: var(--accent) !important;
-    color: white !important;
-    border-color: var(--accent) !important;
 }
 
 @keyframes liquidMorph {
-    0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
-    34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
-    67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
-    100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+    0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+    50% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
 }
 
 @keyframes floatLiquid {
-    0% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(5%, 10%) scale(1.1); }
-    66% { transform: translate(-5%, 5%) scale(0.9); }
-    100% { transform: translate(0, 0) scale(1); }
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@media (max-width: 768px) {
-    header { padding: 8rem 1.5rem 3rem; }
-    nav { top: 1rem; padding: 0.4rem; border-radius: 20px; }
-    nav ul li a, nav ul li#theme-toggle { padding: 0.5rem 0.8rem; font-size: 0.85rem; }
-    main { padding: 0 1.5rem 6rem; }
-    section { padding: 2rem; margin-bottom: 5rem; }
-    img { width: 160px; height: 160px; }
-    button { width: 100%; padding: 1.2rem; }
-    body::before, body::after { filter: blur(50px); }
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(5%, 5%); }
 }

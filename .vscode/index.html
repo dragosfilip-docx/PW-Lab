@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pagina de prezentare personala a unui student pasionat de tehnologie.">
+    <title>Prezentare Personală | Dragoș Filip</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Dragoș Filip</h1>
+        <p>Student la Facultatea de Inginerie Electrică și Știința Calculatoarelor</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">Despre</a></li>
+            <li><a href="#education">Educație</a></li>
+            <li><a href="#projects">Proiecte</a></li> <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="about">
+            <h2>Despre mine</h2>
+            <img src="images/profile.jpg" alt="Portretul lui Dragoș Filip" loading="lazy" width="200">
+            <p>Sunt un viitor dezvoltator software interesat de tehnologiile web moderne. Îmi place să rezolv probleme complexe și să creez interfețe care sunt atât estetice, cât și funcționale pentru utilizatori.</p>
+        </section>
+
+        <section id="education">
+            <h2>Educație</h2>
+            <ol>
+                <li>Colegiul Economic „Ion Ghica” Tgv (2020 - 2024)</li>
+                <li>Universitatea Transilvania din Brașov - Licență Calculatoare (2024 - prezent)</li>
+            </ol>
+        </section>
+
+        <section id="projects">
+            <h2>Proiecte</h2>
+            <div id="projects-list"></div>
+            <p id="projects-stats"></p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <form id="contact-form">
+                <div>
+                    <label for="name">Nume:</label><br>
+                    <input type="text" id="name" name="name" placeholder="Introdu numele" required>
+                </div>
+                <br>
+                <div>
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" placeholder="Introdu email-ul" required>
+                </div>
+                <br>
+                <div>
+                    <label for="message">Mesaj:</label><br>
+                    <textarea id="message" name="message" rows="4" placeholder="Scrie un mesaj..." required></textarea>
+                </div>
+                <br>
+                <button type="button" onclick="submitForm()">Trimite Mesaj</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Dragoș Filip</p>
+        <script src="js/contact_form.js"></script>
+    </footer>
+
+    <script>
+        alert("Hello World!");
+    </script>
+
+    <script src="js/array.js"></script>
+
+</body>
+</html>

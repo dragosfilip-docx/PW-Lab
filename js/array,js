@@ -1,0 +1,46 @@
+const eduItems = document.querySelectorAll('#education ol li');
+const eduArray = Array.from(eduItems).map(li => li.textContent);
+console.log("Educație array:", eduArray);
+
+const filtru2024 = eduArray.filter(item => item.includes("2024"));
+const filtruBrasov = eduArray.filter(item => item.includes("Brașov"));
+console.log("Filtru 2024:", filtru2024);
+console.log("Filtru Brașov:", filtruBrasov);
+
+const primeleCuvinte = eduArray.map(item => item.trim().split(' ')[0]);
+console.log("Primele cuvinte:", primeleCuvinte);
+
+const totalAni = eduArray.reduce((acc, item) => {
+    const ani = item.match(/\d{4}/g);
+    if (ani) {
+        const start = parseInt(ani[0]);
+        const end = ani[1] ? parseInt(ani[1]) : new Date().getFullYear();
+        return acc + (end - start);
+    }
+    return acc;
+}, 0);
+console.log(`Total ani de studiu: ${totalAni}`);
+
+async function loadProjects() {
+    try {
+        const response = await fetch('data/projects.json');
+        if (!response.ok) throw new Error("Eroare la incarcarea fisierului JSON");
+        
+        const projects = await response.json();
+        const container = document.getElementById('projects-list');
+        const stats = document.getElementById('projects-stats');
+        
+        container.innerHTML = `<ul>${projects.map(p => `
+            <li>
+                <strong>${p.name}</strong> - ${p.tech} 
+                [${p.done ? 'Finalizat' : 'În lucru'}]
+            </li>`).join('')}</ul>`;
+            
+        const doneCount = projects.filter(p => p.done).length;
+        stats.textContent = `Finalizate: ${doneCount} din ${projects.length}`;
+    } catch (err) {
+        console.error("Eroare:", err);
+    }
+}
+
+loadProjects();

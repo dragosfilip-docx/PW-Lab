@@ -1,0 +1,6 @@
+[
+    { "name": "Sistem Gestiune", "tech": "C++", "done": true },
+    { "name": "Site Portofoliu", "tech": "HTML/CSS", "done": true },
+    { "name": "Aplicatie Mobile", "tech": "Flutter", "done": false },
+    { "name": "Algoritm Sortare", "tech": "Python", "done": true }
+]
